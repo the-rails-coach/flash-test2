@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlashTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <script>
+      $(function(){
+        // always pass csrf tokens on ajax calls
+        $.ajaxSetup({
+          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="flash-notices">
+      <%= render partial: 'layouts/flash_notices' %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

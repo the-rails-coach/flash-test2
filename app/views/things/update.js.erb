@@ -1,0 +1,6 @@
+<% if @thing.errors.any? %>
+$(".edit-thing").html("<%= j render partial: 'edit' %>")
+$(".flash-notices").html("<%= j render 'layouts/flash_notices' %>");
+<% else %>
+$(".edit-thing").html("<%= j render partial: "things/show" %>")
+<% end %>

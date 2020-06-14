@@ -1,0 +1,13 @@
+
+
+%div.edit-thing
+  Please update your thing
+
+  = form_for @thing, remote: true do |f|
+    = f.text_field :age
+    Age
+    %br
+    = f.text_field :name
+    Name
+    %br
+    = f.submit "Save"
